@@ -15,7 +15,19 @@ import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
+    yield takeEvery('FETCH_PORTFOLIO', getPortfolio);
 
+}
+
+function* getPortfolio(){
+    try{
+        const projectResponse = yield axios.get('/portfolio');
+        const nextAction = {type: 'SET_PROJECTS', payload: projectResponse.data};
+        // this dispatch the information to our original reducer...
+        yield put(nextAction);
+    }catch(error){
+        console.log('error in get project Saga reducer');
+    }
 }
 
 
