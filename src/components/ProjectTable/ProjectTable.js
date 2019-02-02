@@ -6,7 +6,15 @@ import ProjectRow from './ProjectRow/ProjectRow';
 class ProjectTable extends Component {
     componentDidMount() {
         this.getPortfolio();
+        this.getTags();
        
+    }
+
+
+    getTags = () => {
+        console.log('this is get tags');
+        const action = { type: 'FETCH_TAGS' };
+        this.props.dispatch(action);
     }
 
     getPortfolio = () => {
@@ -16,9 +24,10 @@ class ProjectTable extends Component {
 
    
     render() {
+
         return (
             <div>
-                <h3>My Portfolio</h3>
+                
                 <table className="project">
                     <thead>
                         <tr>
@@ -34,9 +43,11 @@ class ProjectTable extends Component {
                     <tbody>
                         {/* {JSON.stringify(this.props.reduxStore.projects)} */}
                         {this.props.reduxStore.projects.map(project => {
-                            return (
-                                <ProjectRow key={project.id} project={project} />
-                            )
+                           return (
+
+                           <ProjectRow key={project.id} project={project} />
+                           )
+                            
                         })}
 
                        

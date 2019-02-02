@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import ProjectInfo from './../../ProjectInfo/ProjectInfo';
 
 class ProjectRow extends Component {
     componentDidMount() {
@@ -16,14 +17,9 @@ class ProjectRow extends Component {
 
     render() {
 
-        this.props.reduxStore.tags.map(tagName =>{
-            return(
-                <td key={tagName.id}>{tagName.name}</td>
-            )
-        })
+        
 
-
-        return (
+       return(
 
 
             <tr>
@@ -32,10 +28,11 @@ class ProjectRow extends Component {
                 <td>{this.props.project.website}</td>
                 <td>{this.props.project.github}</td>
                 <td>{this.props.project.date_completed}</td>
-                <td><img src={this.props.project.thumbnail} alt='placeholder of my project'></img></td>
+                <td><img src={this.props.project.thumbnail} alt='placeholder of my project thumbnail'></img></td>
                 
+                {/* {JSON.stringify(this.props.reduxStore.tags)} */}
 
-                {JSON.stringify(this.props.reduxStore.tags)}
+               
 
 
             </tr>
