@@ -6,6 +6,7 @@ import ProjectRow from './ProjectRow/ProjectRow';
 class ProjectTable extends Component {
     componentDidMount() {
         this.getPortfolio();
+       
     }
 
     getPortfolio = () => {
@@ -13,6 +14,7 @@ class ProjectTable extends Component {
         this.props.dispatch(action);
     }
 
+   
     render() {
         return (
             <div>
@@ -30,17 +32,14 @@ class ProjectTable extends Component {
                         </tr>
                     </thead>
                     <tbody>
-
-
-
+                        {/* {JSON.stringify(this.props.reduxStore.projects)} */}
                         {this.props.reduxStore.projects.map(project => {
                             return (
                                 <ProjectRow key={project.id} project={project} />
                             )
-
-
-
                         })}
+
+                       
 
                     </tbody>
                 </table>

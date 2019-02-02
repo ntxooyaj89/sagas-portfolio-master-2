@@ -16,7 +16,20 @@ import axios from 'axios';
 // Create the rootSaga generator function
 function* rootSaga() {
     yield takeEvery('FETCH_PORTFOLIO', getPortfolio);
+    yield takeEvery('FETCH_TAGS', getTags);
 
+}
+
+function* getTags(){
+    try{
+        const tagsResponse = yield axios.get('/portfolio/tags');
+        const nextAction = {type: 'SET_TAGS', payload: tagsResponse.data};
+        // this is information will be sent to our original reducer
+        // that info will wait there to till a component wants the info...
+        yield put(nextAction);
+    }catch(error){
+        console.log('There is error in getTag saga reducer')
+    }
 }
 
 function* getPortfolio(){
