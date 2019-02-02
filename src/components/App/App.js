@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from './../Home/Home';
+import ProjectTable from './../ProjectTable/ProjectTable';
 import Admin from './../Admin/Admin';
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Home/>
+        <ProjectTable/>
         {/* <Admin/> */}
       </div>
       
