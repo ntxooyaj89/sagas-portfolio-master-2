@@ -47,5 +47,18 @@ router.post('/', (req, res) => {
     })               
 })
 
+// delete project from Admin page....
+router.delete('/:id', (req, res)=> {
+    console.log('error in delete router', req.params);
+    const queryText = `DELETE FROM "projects" 
+                       WHERE id = $1;`;
+    pool.query(queryText, [req.params.id])
+    .then(()=>{
+        res.sendStatus(200);
+    }).catch(error =>{
+        alert('There is something wrong with server');
+        res.sendStatus(500)
+    })                   
+})
 
 module.exports = router;

@@ -17,8 +17,22 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_PORTFOLIO', getPortfolio);
     yield takeEvery('FETCH_TAGS', getTags);
-    yield takeEvery('ADD_PROJECT', addNewProject)
+    yield takeEvery('ADD_PROJECT', addNewProject);
+    yield takeEvery('DELETE_PROJECT', deleteProject);
 
+}
+
+function* deleteProject(action){
+    console.log('delete project saga reducer');
+    try{
+        const projectId = action.payload.projectId
+        console.log(projectId);
+        yield axios.delete(`/portfolio/${projectId}`);
+        const nextAction = {type: 'FETCH_PROTFOLIO'}
+        yield put(nextAction)
+    }catch(error){
+        console.log('error in delete saga', error);
+    }
 }
 
 

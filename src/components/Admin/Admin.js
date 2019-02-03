@@ -129,8 +129,8 @@ class Admin extends Component {
                 <h2>Admin</h2>
             </header>
             {/* <AdminTable/> */}
-                {JSON.stringify(this.props.reduxStore.tags)}
-                <pre>{JSON.stringify(this.state)}</pre>
+                {/* {JSON.stringify(this.props.reduxStore.tags)} */}
+                {/* <pre>{JSON.stringify(this.state)}</pre> */}
             <form onSubmit={this.addNewProject}>
                 <input onChange={this.handleProject} placeholder="Name of project"/>
                 <input onChange={this.handleProjectUrl} placeholder="project URL"/>
