@@ -1,56 +1,40 @@
-// import React, { Component } from "react";
-// import { connect } from 'react-redux';
-// import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 
-// class AdminTable extends Component {
+class AdminTable extends Component {
 
-//     componentDidMount() {
-//         this.getProject();
-//     }
+    // componentDidMount() {
+    //     this.getProject();
+    // }
 
-//     getProject = () => {
-//         const action = { type: 'FETCH_PORTFOLIO' };
-//         this.props.dispatch(action);
-//     } 
+    // getProject = () => {
+    //     const action = { type: 'FETCH_PORTFOLIO' };
+    //     this.props.dispatch(action);
+    // } 
 
 
-//     render(){
-//         return(
-//             <div>
-//             <table>
-//                 <thead>
-//                     <tr>
-//                         <th>Project Name</th>
-//                         <th>Project Description</th>
-//                         <th>Project webSite</th>
-//                         <th>Project gitHub</th>
-//                         <th>Project completed Date</th>
-//                         <th>Project WireFrame</th>
-//                     </tr>
+    render() {
+        return (
 
-//                 </thead>
-//                 <tbody>
-//                     <tr>
-//                         <td></td>
-//                         <td></td>
-//                         <td></td>
-//                         <td></td>
-//                         <td></td>
-//                         <td></td>
-                       
-//                     </tr>
+            <tr>
+                <td>{this.props.project.name}</td>
+                <td>
+                    <button>Delete project</button>
+                </td>
+            </tr>
 
-//                 </tbody>
-//             </table>
-//         </div>
-//         )
-//     }
 
-// }
 
-// const mapReduxStoreToProps = (reduxStore) => ({
-//     reduxStore
-// });
 
-// export default connect() (AdminTable);
+        )
+    }
+
+}
+
+const mapReduxStoreToProps = (reduxStore) => ({
+    reduxStore
+});
+
+export default connect()(AdminTable);

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-// import AdminTable from './../AdminTable/AdminTable';
+import AdminTable from './../AdminTable/AdminTable';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 
@@ -89,18 +89,13 @@ class Admin extends Component {
 
     render() {
 
-        let projectName = this.props.reduxStore.projects.map(project => {
-            return (
-            
-                    
-                <tr key={project.id}>{project.name}</tr>
-               
-            
-            
-               
-            )
-               
-        })
+        // this.props.reduxStore.projects.map(project => {
+        //     return (
+
+
+        //         <AdminTable key={project.id} project={project}/>
+        //     )
+        // })
 
         return (
             <div>
@@ -131,21 +126,23 @@ class Admin extends Component {
                         <thead>
                             <tr>
                                 <th>Project Name</th>
-                                <th>Action</th>
+                             
                                
                             </tr>
 
                         </thead>
                         <tbody>
+                            
 
-                            {projectName}
-                        
-                           
-                           
-                          
-                          
-
+                            {this.props.reduxStore.projects.map(project =>{
+                                return (
+                                    <AdminTable key={project.id} project={project}/>
+                                )
+                            })}
+           
+                
                         </tbody>
+                       
                     </table>
                 </div>
            
