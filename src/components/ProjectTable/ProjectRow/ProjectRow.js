@@ -40,6 +40,12 @@ class ProjectRow extends Component {
 
     render() {
 
+        // this.props.reduxStore.tags.map(tagName =>{
+        //     return(
+        //         <td key={this.props.tagName.id}>{this.props.tagName.name}</td>
+        //     )
+        // })
+
 
 
         return (
@@ -50,15 +56,18 @@ class ProjectRow extends Component {
                     <CardActionArea>
 
                         <CardContent>
+                            {/* {JSON.stringify(this.props.reduxStore.projects)} */}
                             <td>{this.props.project.name}</td>
                             <td>{this.props.project.description}</td>
                             <td><a href="{this.props.project.website}">Go to project</a></td>
                             <td><a href="{this.props.project.github}">Go to Github</a></td>
                             <td>{this.props.project.date_completed}</td>
+                            <td>{this.props.project.tag_name}</td>
+                            
                         </CardContent>
 
                         <CardMedia className={this.state.media}
-                            image={this.props.project.thumbnail}
+                            // image={this.props.project.thumbnail}
                             title={this.props.project.name} />
                         <td><img src={this.props.project.thumbnail} alt='placeholder of my project thumbnail'></img></td>
 
