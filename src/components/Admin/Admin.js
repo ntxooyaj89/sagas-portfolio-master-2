@@ -14,8 +14,9 @@ class Admin extends Component {
             newProject:{
             name: '',
             description: '',
-            thumbnail: '',
+            // date_completed: '',
             website: '',
+            tag_id: '',
             }
            
         }
@@ -24,7 +25,15 @@ class Admin extends Component {
 
     componentDidMount() {
         this.getProject();
+        this.getTags();
     }
+
+    getTags = () => {
+        console.log('this is get tags');
+        const action = { type: 'FETCH_TAGS' };
+        this.props.dispatch(action);
+    }
+
 
     getProject = () => {
         const action = { type: 'FETCH_PORTFOLIO' };
@@ -55,7 +64,7 @@ class Admin extends Component {
         this.setState({
             newProject: {
                 ...this.state.newProject,
-                description: event.target.value,
+                website: event.target.value,
             }
         })
     }
@@ -64,10 +73,17 @@ class Admin extends Component {
         this.setState({
             newProject: {
                 ...this.state.newProject,
-                thumbnail: event.target.value,
+                gitHub: event.target.value,
             }
           
 
+        })
+    }
+
+    handleDate = (event) =>{
+        this.setState({
+            ...this.state.newProject,
+            data_completed: event.target.value,
         })
     }
 
@@ -75,11 +91,21 @@ class Admin extends Component {
         this.setState({
             newProject: {
                 ...this.state.newProject,
-                website: event.target.value,
+                description: event.target.value,
             }
          
 
         })
+    }
+
+    selectTag = (event) =>{
+        console.log('this is select tag');
+        this.setState({
+            newProject: {
+                ...this.state.newProject,
+                tag_id: event.target.value,
+            }
+        });
     }
 
     
@@ -88,14 +114,6 @@ class Admin extends Component {
 
 
     render() {
-
-        // this.props.reduxStore.projects.map(project => {
-        //     return (
-
-
-        //         <AdminTable key={project.id} project={project}/>
-        //     )
-        // })
 
         return (
             <div>
@@ -111,12 +129,21 @@ class Admin extends Component {
                 <h2>Admin</h2>
             </header>
             {/* <AdminTable/> */}
-            {/* {JSON.stringify(this.props.reduxStore.projects)} */}
+                {JSON.stringify(this.props.reduxStore.tags)}
+                <pre>{JSON.stringify(this.state)}</pre>
             <form onSubmit={this.addNewProject}>
                 <input onChange={this.handleProject} placeholder="Name of project"/>
                 <input onChange={this.handleProjectUrl} placeholder="project URL"/>
                 <input onChange={this.handleGithubUrl}placeholder="gitHub URL"/>
+                <input onChange={this.handleDate} placeholder="date completed"/>
                 <input onChange={this.handleDescription}placeholder="Decription of project"/>
+                <select onChange={this.selectTag} value ={this.state.newProject.tags}>
+                <option value="">Select Tag</option>
+                {this.props.reduxStore.tags.map((tag, i) =>{
+                    return <option key={i} value={tag.id}>{tag.name}</option>
+                })}
+                
+                </select>
 
                 <button type="submit">Submit</button>
             </form>
