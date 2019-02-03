@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
+// import AdminTable from './../AdminTable/AdminTable';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 
@@ -20,6 +21,18 @@ class Admin extends Component {
         }
 
     }
+
+    componentDidMount() {
+        this.getProject();
+    }
+
+    getProject = () => {
+        const action = { type: 'FETCH_PORTFOLIO' };
+        this.props.dispatch(action);
+    } 
+
+
+
 
     addNewProject = (event) =>{
         console.log('this is handleClick');
@@ -75,6 +88,20 @@ class Admin extends Component {
 
 
     render() {
+
+        let projectName = this.props.reduxStore.projects.map(project => {
+            return (
+            
+                    
+                <tr key={project.id}>{project.name}</tr>
+               
+            
+            
+               
+            )
+               
+        })
+
         return (
             <div>
                 <Router>
@@ -88,6 +115,8 @@ class Admin extends Component {
             <header>
                 <h2>Admin</h2>
             </header>
+            {/* <AdminTable/> */}
+            {/* {JSON.stringify(this.props.reduxStore.projects)} */}
             <form onSubmit={this.addNewProject}>
                 <input onChange={this.handleProject} placeholder="Name of project"/>
                 <input onChange={this.handleProjectUrl} placeholder="project URL"/>
@@ -96,8 +125,30 @@ class Admin extends Component {
 
                 <button type="submit">Submit</button>
             </form>
-            
 
+                <div>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Action</th>
+                               
+                            </tr>
+
+                        </thead>
+                        <tbody>
+
+                            {projectName}
+                        
+                           
+                           
+                          
+                          
+
+                        </tbody>
+                    </table>
+                </div>
+           
                 
             </div>
         );
