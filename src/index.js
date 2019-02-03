@@ -22,8 +22,17 @@ function* rootSaga() {
 }
 
 
-function* addNewProject(){
+function* addNewProject(action){
     console.log('this is addNewProject');
+    try{
+        yield axios.post('/portfolio', action.payload);
+        // call back to FETCH_PORTFOLIO to re-run the getPortfolio funciton
+        const nextAction = {type: 'FETCH_PORTFOLIO'};
+        yield put(nextAction);
+    }catch(error){
+        console.log('there is error in POST saga reducer', error);
+    }
+
 }
 function* getTags(){
     try{
