@@ -17,9 +17,14 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_PORTFOLIO', getPortfolio);
     yield takeEvery('FETCH_TAGS', getTags);
+    yield takeEvery('ADD_PROJECT', addNewProject)
 
 }
 
+
+function* addNewProject(){
+    console.log('this is addNewProject');
+}
 function* getTags(){
     try{
         const tagsResponse = yield axios.get('/portfolio/tags');

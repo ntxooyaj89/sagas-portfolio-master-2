@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './ProjectRow.css'
+// hashRouter create the links...
+import { HashRouter as Router, Route } from 'react-router-dom';
+
 // import ProjectInfo from './../../ProjectInfo/ProjectInfo';
 
 class ProjectRow extends Component {
@@ -25,10 +29,13 @@ class ProjectRow extends Component {
             <tr>
                 <td>{this.props.project.name}</td>
                 <td>{this.props.project.description}</td>
+              
+               
                 <td>{this.props.project.website}</td>
                 <td>{this.props.project.github}</td>
                 <td>{this.props.project.date_completed}</td>
-                <td><img src={this.props.project.thumbnail} alt='placeholder of my project thumbnail'></img></td>
+                <td><img className='cardImage' src={this.props.project.thumbnail} alt='placeholder of my project thumbnail'></img></td>
+               
                 
                 {/* {JSON.stringify(this.props.reduxStore.tags)} */}
 

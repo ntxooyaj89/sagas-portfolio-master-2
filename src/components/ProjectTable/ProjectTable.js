@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import ProjectRow from './ProjectRow/ProjectRow';
+import Header from './../Header/Header';
 
 
 class ProjectTable extends Component {
@@ -27,6 +28,9 @@ class ProjectTable extends Component {
 
         return (
             <div>
+                <header>
+                    <Header />
+                </header>
                 
                 <table className="project">
                     <thead>
@@ -38,11 +42,15 @@ class ProjectTable extends Component {
                             <th>Project gitHub</th>
                             <th>Project completed Date</th>
                             <th>Project WireFrame</th>
+                            <br/>
                         </tr>
                     </thead>
                     <tbody>
                         {/* {JSON.stringify(this.props.reduxStore.projects)} */}
-                        {this.props.reduxStore.projects.map(project => {
+                        {
+                            this.props.reduxStore.projects !== undefined
+                            &&
+                            this.props.reduxStore.projects.map(project => {
                            return (
 
                            <ProjectRow key={project.id} project={project} />
