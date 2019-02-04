@@ -120,7 +120,7 @@ class Admin extends Component {
                 <Router>
                 <ul>
                     <li>
-                            <Link to="/project_table">Back to project Home</Link>
+                            <Link to="/">Back to project Home</Link>
                     </li>
 
                 </ul>
