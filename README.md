@@ -44,8 +44,8 @@ Once the database is set up, go back to the code and run these line in the termi
 1. `npm run server`
 1. `npm run client`
 
-![Select project View](images/wireframe.png)
-We've given you some starter tags. Feel free to change or add some.
+![Working Image](public/images/wireframe.png)
+
 
 For base mode, you should only include **one** tag per project. This gives you a one to many relationship. We'll cover many to many SQL queries next week. 
 
