@@ -7,7 +7,7 @@ class Header extends Component {
         return (
            
             <header>
-                <h2>Tang Yang Portfolio</h2>
+                <h2>Tang Yang</h2>
                 <img src="images/Tang_portfolio.jpg" alt="my portfolio" />
             </header>
            

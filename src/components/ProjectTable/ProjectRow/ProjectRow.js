@@ -40,14 +40,7 @@ class ProjectRow extends Component {
 
     render() {
 
-        // this.props.reduxStore.tags.map(tagName =>{
-        //     return(
-        //         <td key={this.props.tagName.id}>{this.props.tagName.name}</td>
-        //     )
-        // })
-
-
-
+        
         return (
 
 

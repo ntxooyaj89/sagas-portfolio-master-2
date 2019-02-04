@@ -1,10 +1,17 @@
 # React Redux with Sagas
 
-For this weekend challenge, you'll be building a portfolio site to showcase your work. 
+Build a portfolio where you can showcase your work. This project uses reux saga to retrive information from the database and will then store the information to a local reducer. When a component needs the information it will send that information to the compoents that have a matching action type.
+
+# prerequisites links to tools used for this project
+
+1. PosticoSQL https://eggerapps.at/postico/ 
+2. React https://reactjs.org/
+3. Redux https://redux.js.org/
+
 
 ## Setup
 
-> **PLEASE COMMENT YOUR CODE.** Do not clone this repository. Instead, download the zip, extract the contents, `git init`, `git add .`, `git commit -m "initial commit - base project"` and add your remote. Please do this before you leave for the day.
+ Use these instruction to get you started:  
 
 1. Create a database named `portfolio`
 1. Run the following SQL using the `portfolio` database:
@@ -12,7 +19,7 @@ For this weekend challenge, you'll be building a portfolio site to showcase your
 ```SQL
 CREATE TABLE "tags" (
     "id" SERIAL PRIMARY KEY,
-    "name" varchar(255) NOT NULL
+    "tag_name" varchar(255) NOT NULL
 );
 
 CREATE TABLE "projects" (
@@ -28,16 +35,16 @@ CREATE TABLE "projects" (
 
 INSERT INTO "tags" ("name") 
 VALUES ('React'), ('jQuery'), ('Node'), ('SQL'), ('Redux'), ('HTML');
+
 ```
+
+Once the database is set up, go back to the code and run these line in the terminal. These steps will need to be excute to be able to get project to work.
 
 1. `npm install`
 1. `npm run server`
 1. `npm run client`
 
-## Notes
-
-### Tags
-
+![Select project View](images/wireframe.png)
 We've given you some starter tags. Feel free to change or add some.
 
 For base mode, you should only include **one** tag per project. This gives you a one to many relationship. We'll cover many to many SQL queries next week. 

@@ -140,7 +140,7 @@ class Admin extends Component {
                 <select onChange={this.selectTag} value ={this.state.newProject.tags}>
                 <option value="">Select Tag</option>
                 {this.props.reduxStore.tags.map((tag, i) =>{
-                    return <option key={i} value={tag.id}>{tag.name}</option>
+                    return <option key={i} value={tag.id}>{tag.tag_name}</option>
                 })}
                 
                 </select>

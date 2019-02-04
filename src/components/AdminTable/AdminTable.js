@@ -1,9 +1,21 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import Card from '@material-ui/core/Card';
 
 
 class AdminTable extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            card: { maxWidth: 10, },
+            title: { fontSize: 10 },
+            media: { height: 140 }
+        }
+
+    }
+
 
     componentDidMount(){
         this.getProject();
@@ -29,11 +41,13 @@ class AdminTable extends Component {
     render() {
         return (
 
-            <tr>
+            <tr className="classes-card">
+                <Card className={this.state.card}>
                 <td>{this.props.project.name}</td>
                 <td>
                     <button onClick ={this.removeProject}>Delete project</button>
                 </td>
+                </Card>
             </tr>
 
 
