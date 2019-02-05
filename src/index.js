@@ -28,7 +28,7 @@ function* deleteProject(action){
         const projectId = action.payload.projectId
         console.log(projectId);
         yield axios.delete(`/portfolio/${projectId}`);
-        const nextAction = {type: 'FETCH_PROTFOLIO'}
+        const nextAction = {type: 'FETCH_PORTFOLIO'}
         yield put(nextAction)
     }catch(error){
         console.log('error in delete saga', error);
